@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../filtro/filtro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Filtro de Roupas</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html" class="logo-container">
+                <img src="../img/logoverde.jpg" alt="logo" class="logo">
+            </a>
+            <nav class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vestuario.html">Vestuário</a></li>
+                    <li><a href="produtosdebeleza.html">Produtos De Beleza</a></li>
+                    <li><a href="mobiliasGreen.html">Mobílias</a></li>
+                    <li><a href="technoGreen.html">TecnoGreen</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+            <a href="carrinho.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+    </header>
+    
+    
+    <h1>Filtro de Roupas</h1>
+    <script>
+        function filtrarPorPreco() {
+            const precoMin = parseFloat(document.getElementById('preco-min').value);
+            const precoMax = parseFloat(document.getElementById('preco-max').value);
+            const produtos = document.querySelectorAll('.product-item');
+    
+            produtos.forEach(produto => {
+                const precoProduto = parseFloat(produto.getAttribute('data-preco'));
+                    
+                if ((isNaN(precoMin) || precoProduto >= precoMin) && (isNaN(precoMax) || precoProduto <= precoMax)) {
+                     produto.style.display = 'block'; // Exibe o produto
+                } else {
+                    produto.style.display = 'none'; // Esconde o produto
+                }
+            });
+        }
+    </script>
+    
+    <div class="filtro-container">
+        <h2>Filtrar por:</h2>
+        <div class="filtros">
+            <label for="tipo">Tipo de Produto:</label>
+            <select id="tipo" onchange="filtrarProdutos()">
+                <option value="all">Todos</option>
+                <option value="Camiseta">Camisetas</option>
+                <option value="Calça">Calças</option>
+                <option value="Tenis">Tênis</option>
+                <option value="Acessorio">Acessórios</option>
+                <option value="Paineis Solares">Painel Solar</option>
+                <option value="Energia">Tipos de Energia</option>
+                <option value="Material">Material</option>
+                <option value="Perfume">Perfume</option>
+                <option value="Facial">Produto Facial</option>
+                <option value="Corporeo">Produto Corporeo</option>
+                <option value="Acento">Acentos</option>
+                <option value="Vaso">Vasos de Planta</option>
+                <option value="Prateleira">Prateleira</option>
+                </select>
+            </div>
+            <div class="filtro-container">
+                <div class="filtros">
+                <label for="preco-min">Preço Mínimo:</label>
+                    <input type="number" id="preco-min" placeholder="R$ Min">
+                    
+                    <label for="preco-max">Preço Máximo:</label>
+                    <input type="number" id="preco-max" placeholder="R$ Max">
+                    
+                    <button onclick="filtrarPorPreco()">Filtrar Preço</button>
+                </div>
+            </div>
+        </div>
+        <section id="products">
+            <div class="product-grid">
+                <div class="product-item" data-tipo="Camiseta" data-preco="50">
+                    <img src="img/camiseta 1.png" alt="">
+                    <h3>Camiseta Branca Beija-Flor - R$50,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Camiseta" data-preco="50">
+                    <img src="img/camiseta 2.png" alt="">
+                    <h3>Camiseta Branca Geométrica - R$50,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Camiseta" data-preco="55">
+                    <img src="img/camiseta 3.png" alt="">
+                    <h3>Camiseta DarkLab - R$55,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Calça" data-preco="100">
+                    <img src="img/calca 1.png" alt="">
+                    <h3>Calça Jeans Azul - R$100,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Calça" data-preco="110">
+                    <img src="img/calca 2.png" alt="">
+                    <h3>Calça Jeans Cinza - R$110,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Calça" data-preco="110">
+                    <img src="img/calca 3.png" alt="">
+                    <h3>Calça Jeans Preta - R$110,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Tenis" data-preco="150">
+                    <img src="img/tenis 1.png" alt="">
+                    <h3>Tênis Marrom - R$150,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Tenis" data-preco="180">
+                    <img src="img/tenis 2.png" alt="">
+                    <h3>Tênis Azul - R$180,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Tenis" data-preco="170">
+                    <img src="img/tenis 3.png" alt="">
+                    <h3>Tênis Branco - R$170,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Acessorio" data-preco="20">
+                    <img src="img/acessorio1.png" alt="">
+                    <h3>Pulseira de Miçangas - R$20,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Acessorio" data-preco="15">
+                    <img src="img/acessorio2.png" alt="">
+                    <h3>Colar de Miçangas - R$15,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Acessorio" data-preco="12">
+                    <img src="img/acessorio3.png" alt="">
+                    <h3>Brinco de Miçangas - R$12,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Paineis Solares" data-preco="7240">
+                    <img src="img/vidro solar 1.jpg" alt="">
+                    <h3>Painel Solar no Telhado de Casas - R$7.240,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Paineis Solares" data-preco="20000">
+                    <img src="img/vidro solar 2.jpg" alt="">
+                    <h3>Painel Solar em Janelas - R$20.000,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Paineis Solares" data-preco="10000">
+                    <img src="img/vidro solar 3.jpg" alt="">
+                    <h3>Painel Solar em Telhado de Empresas - R$10.000,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Energia" data-preco="90000">
+                    <img src="img/energia 1.jpg" alt="">
+                    <h3>Carro Elétrico - R$90.000,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Energia" data-preco="32000">
+                    <img src="img/energia 2.jpg" alt="">
+                    <h3>Energia Termodinâmica - R$32.000,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Energia" data-preco="15000">
+                    <img src="img/energia 3.jpg" alt="">
+                    <h3>Energia Eólica - R$15.000,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Material" data-preco="500">
+                    <img src="img/material 1.jpg" alt="">
+                    <h3>Textil - R$500,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Material" data-preco="35">
+                    <img src="img/material 2.jpg" alt="">
+                    <h3>Plástico Orgânico - R$35,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Perfume" data-preco="179">
+                    <img src="img/perfume 1.jpg" alt="">
+                    <h3>Perfume Laranja - R$179,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Perfume" data-preco="139">
+                    <img src="img/perfume 2.jpg" alt="">
+                    <h3>Perfume Rosé - R$139,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Perfume" data-preco="249">
+                    <img src="img/perfume 3.jpg" alt="">
+                    <h3>Perfume Verde - R$249,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Facial" data-preco="120">
+                    <img src="img/produto facial 1.jpg" alt="">
+                    <h3>Óleo Facial - R$120,00</h3>
+                </div>
+                <div class="product-item" data-tipo="Facial" data-preco="199">
+                    <img src="img/produto facial 2.jpg" alt="">
+                    <h3>Batom - R$199,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Facial" data-preco="79">
+                    <img src="img/produto facial 3.jpg" alt="">
+                    <h3>Creme Facial - R$79,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Corporeo" data-preco="44">
+                    <img src="img/produtos corporeos 1.jpg" alt="">
+                    <h3>Bucha de Banho - R$44,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Corporeo" data-preco="55">
+                    <img src="img/produtos corporeos 2.jpg" alt="">
+                    <h3>Sabonete Vegetal - R$55,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Corporeo" data-preco="44">
+                    <img src="img/produtos corporeos 3.jpg" alt="">
+                    <h3>Pente de Cabelo - R$44,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Acento" data-preco="149">
+                    <img src="img/acento 1.jpg" alt="">
+                    <h3>Cadeira Vermelha - R$149,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Acento" data-preco="339">
+                    <img src="img/acento 2.jpg" alt="">
+                    <h3>Sofá Beje - R$339,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Acento" data-preco="199">
+                    <img src="img/acento 3.jpg" alt="">
+                    <h3>Cadeira Marrom de Descanço - R$199,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Acento" data-preco="199">
+                    <img src="img/acento 4.jpg" alt="">
+                    <h3>Cadeira Cinza - R$199,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Vaso" data-preco="59">
+                    <img src="img/vasos de Planta 1.jpg" alt="">
+                    <h3>Vaso Vertical - R$59,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Vaso" data-preco="89">
+                    <img src="img/vasos de Planta 2.jpg" alt="">
+                    <h3>Vaso de Mesa - R$89,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Prateleira" data-preco="104">
+                    <img src="img/prateleira 1.jpg" alt="">
+                    <h3>Prateleira Horizontal - R$104,99</h3>
+                </div>
+                <div class="product-item" data-tipo="Prateleira" data-preco="59">
+                    <img src="img/prateleira 2.jpg" alt="">
+                    <h3>Prateleira Vertical - R$59,99</h3>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function filtrarPorPreco() {
+                const precoMin = parseFloat(document.getElementById('preco-min').value);
+                const precoMax = parseFloat(document.getElementById('preco-max').value);
+                const produtos = document.querySelectorAll('.product-item');
+    
+                produtos.forEach(produto => {
+                    const precoProduto = parseFloat(produto.getAttribute('data-preco'));
+                    
+                    if ((isNaN(precoMin) || precoProduto >= precoMin) && (isNaN(precoMax) || precoProduto <= precoMax)) {
+                        produto.style.display = 'block'; // Exibe o produto
+                    } else {
+                        produto.style.display = 'none'; // Esconde o produto
+                    }
+                });
+            }
+        </script>
+    
+        <script>
+            function filtrarProdutos() {
+                const tipoSelecionado = document.getElementById('tipo').value;
+                const produtos = document.querySelectorAll('.product-item');
+    
+                produtos.forEach(produto => {
+                    const tipoProduto = produto.getAttribute('data-tipo');
+    
+                    if (tipoSelecionado === 'all' || tipoProduto === tipoSelecionado) {
+                        produto.style.display = 'block';
+                    } else {
+                        produto.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
+</body>
+</html>
